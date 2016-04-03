@@ -37,6 +37,8 @@ router.get('/api/user/2', function(req, res) {
 
 app.use('/', router);
 
+app.use(express.static('public'));
+
 app.use(function(req, res) {
   res.sendStatus(404);
 });
