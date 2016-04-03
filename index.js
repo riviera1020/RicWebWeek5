@@ -19,6 +19,14 @@ router.get('/api/query', function(req, res) {
 	res.json(req.query);
 });
 
+router.get('/api/user/1', function(req, res) {
+	res.json({ id: 1, name: "Joe", age: 18 });
+});
+
+router.get('/api/user/2', function(req, res) {
+	res.json({ id: 2, name: "John", age: 22 });
+});
+
 app.use('/', router);
 
 app.use(function(req, res) {
