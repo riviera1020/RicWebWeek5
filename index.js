@@ -3,6 +3,7 @@ var app = express();
 var router = express.Router();
 var nunjucks = require('nunjucks');
 var path = require('path');
+var bodyParser = require('body-parser');
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'nunjucks');
@@ -17,6 +18,13 @@ router.get('/', function(req, res) {
 
 router.get('/api/query', function(req, res) {
 	res.json(req.query);
+});
+
+router.use(bodyParser.urlencoded({ extended: false }));
+router.use(bodyParser.json());
+
+router.post('/api/body', function(req, res) {
+	res.send(JSON.stringify(req.body));
 });
 
 router.get('/api/user/1', function(req, res) {
