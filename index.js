@@ -13,7 +13,11 @@ nunjucks.configure('views', {
 
 router.get('/', function(req, res) {
 	res.render('index.html');
-})
+});
+
+router.get('/api/query', function(req, res) {
+	res.json(req.query);
+});
 
 app.use('/', router);
 
